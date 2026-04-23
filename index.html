@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VOID SIEGE — A top-down shooter game with waves of enemies. Survive as long as you can!">
+  <title>VOID SIEGE — Top-Down Shooter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- HUD Overlay (visible during gameplay) -->
+  <div id="hud" class="hidden">
+    <div id="hudLeft">
+      <div id="healthBarContainer">
+        <div id="healthBarFill"></div>
+        <span id="healthText">100</span>
+      </div>
+    </div>
+    <div id="hudCenter">
+      <div id="waveInfo">WAVE <span id="waveNumber">1</span></div>
+      <div id="waveTimer">Next wave: <span id="timerValue">60</span>s</div>
+    </div>
+    <div id="hudRight">
+      <div id="killCount">
+        <span id="killIcon">💀</span>
+        <span id="killValue">0</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu Screen -->
+  <div id="menuScreen" class="overlay">
+    <div class="overlay-content">
+      <h1 id="gameTitle">VOID SIEGE</h1>
+      <p class="subtitle">Survive the onslaught</p>
+      <div class="highscore-display">
+        <span class="hs-label">HIGH SCORE</span>
+        <span id="menuHighScore" class="hs-value">0</span>
+      </div>
+      <button id="playBtn" class="btn-primary">LAUNCH</button>
+      <div class="controls-info">
+        <p><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> Move &nbsp;|&nbsp; <kbd>MOUSE</kbd> Aim &nbsp;|&nbsp; <kbd>CLICK</kbd> Shoot</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Over Screen -->
+  <div id="gameOverScreen" class="overlay hidden">
+    <div class="overlay-content">
+      <h1 class="game-over-title">OBLITERATED</h1>
+      <div id="newHighScore" class="new-hs hidden">★ NEW HIGH SCORE ★</div>
+      <div class="stats-grid">
+        <div class="stat-box">
+          <span class="stat-label">KILLS</span>
+          <span id="finalScore" class="stat-value">0</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">WAVE</span>
+          <span id="finalWave" class="stat-value">1</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">BEST</span>
+          <span id="finalHighScore" class="stat-value">0</span>
+        </div>
+      </div>
+      <button id="playAgainBtn" class="btn-primary">FIGHT AGAIN</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
